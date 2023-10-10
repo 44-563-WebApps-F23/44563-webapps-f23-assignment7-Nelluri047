@@ -59,42 +59,117 @@
     <p id="help">Help report</p>
 
 	</div>
-	
+	<script>
+        let ids = new Array();
+        for(let i =0; i<25; i++){
+            ids.push(i);
+        }
+        let  checkCount = 0;
+        let penalty = 0;
+        let  lastCheck = 0;
+        let treasureLocation =5;
+        let trapLocation = 18;
+        let  gameOver = false;
+        function check(x){
+            var a = parseInt(x);
+            if(gameOver == true){
+                return ;
+            }
+           let imgId = ids[a];
+           let imgElement =  document.getElementById(imgId);
+           if( a == treasureLocation){
+            imgElement.src ="treasure_box.jpg"; 
+            gameOver = true;
+            penalty = penalty-3;
+
+           }
+           else if(a == trapLocation){
+            imgElement.src="booby-trap.jpg"
+            gameOver = true;
+            penalty = penalty+4;
+           }
+           else{
+            imgElement.src="Skeleton-Pirate.webp"
+           }
+           checkCount++
+           penalty++
+          
+            document.getElementById("checkedcount").innerHTML = "Number of chests checked is " + checkCount;
+            document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
+            lastCheck = a;
+
+
+        }
+        function help(){
+            
+            let col = lastCheck%5
+    let row = Math.floor(lastCheck/5)
+
+    let treasureCol = treasureLocation%5
+    let treasureRow = Math.floor(treasureLocation/5)
+
+    let col_diff = Math.abs(col-treasureCol) 
+    let row_diff = Math.abs(row-treasureRow)
+
+    let report = ""
+
+    if(((col_diff<=1)&&(row_diff==0))||((col_diff==0)&&(row_diff<=1)))
+    {
+      report = "Can smell it"
+    }
+    else if(col_diff+row_diff==2)
+    {
+      report = "Close Matie"
+    }
+    else
+    {
+      report = "Step Faster"
+    }
+    penalty=penalty+2
+    pen_text = document.getElementById("penalty")
+    pen_text.innerHTML=`Penalty is ${penalty}`
+    help_text = document.getElementById("help")
+    help_text.innerHTML=`Help report ${report}`
+  }
+
+        
+
+    </script>
 	<div class="container">
         <div class="row">
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(0)" id="0" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(1)" id="1" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(2)" id="2" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(3)" id="3" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(4)" id="4" style="width:100px;height:100px;"></div>
         </div>
         <div class="row">
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(5)" id="5" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(6)" id="6" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(7)" id="7" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(8)" id="8" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(9)" id="9" style="width:100px;height:100px;"></div>
         </div>
         <div class="row">
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(10)" id="10" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(11)" id="11" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(12)" id="12" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(13)" id="13" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(14)" id="14" style="width:100px;height:100px;"></div>
         </div>
         <div class="row">
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(15)" id="15" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(16)" id="16" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(17)" id="17" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(18)" id="18" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(19)" id="19" style="width:100px;height:100px;"></div>
         </div>
         <div class="row">
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
-            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(20)" id="20" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(21)" id="21" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(22)" id="22" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(23)" id="23" style="width:100px;height:100px;"></div>
+            <div class="col-md-2"><img src="treasure-map.jpg" alt="location" onclick="check(24)" id="24" style="width:100px;height:100px;"></div>
         </div>
     </div>
 </body>
