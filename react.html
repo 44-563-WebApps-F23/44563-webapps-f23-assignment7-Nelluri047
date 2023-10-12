@@ -29,7 +29,7 @@
   function recordTime()
   {
     reactTime = Date.now()
-    console.log("Current time in milli seconds: "+ reactTime +"ms")
+    console.log("Current time in milli seconds: "+ reactTime)
   }
   function startTime()
   {
@@ -52,7 +52,7 @@
         else
         {
             const elapsed_time =Math.abs(endTime-reactTime)
-            document.getElementById("target").innerHTML="Time was "+elapsed_time
+            document.getElementById("target").innerHTML="Time was "+elapsed_time +"ms";
         }
     },8000)
 
