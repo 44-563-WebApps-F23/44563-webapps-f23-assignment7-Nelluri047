@@ -3,3 +3,9 @@
 An assignment on java script modifying the DOM and using anonymous callback functions.
 
 Hosted at[ Pirate ](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment7-Nelluri047/pirate.html)
+
+Hosted at[ react ](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment7-Nelluri047/react.html)
+
+Hosted at[ timeout ](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment7-Nelluri047/timeout.html)
+
+Hosted at[ merger ](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment7-Nelluri047/merger.html)
